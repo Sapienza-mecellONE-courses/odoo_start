@@ -14,7 +14,6 @@ class ProductImage(models.Model):
     _order = 'sequence, id'
 
     name = fields.Char("Name", required=True)
-    type = fields.Char("Type", required=True)
     sequence = fields.Integer(default=10, index=True)
 
     image_1920 = fields.Image(required=True)
