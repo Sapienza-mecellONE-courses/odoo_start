@@ -21,7 +21,8 @@ class Event(models.Model):
         'website.published.multi.mixin',
         'website.cover_properties.mixin'
     ]
-
+    invited_company_ids = fields.One2many('evento.invited.company', 'event_id', string='Aziende Invitate')
+    
     def _default_cover_properties(self):
         res = super()._default_cover_properties()
         res['opacity'] = '0.4'
