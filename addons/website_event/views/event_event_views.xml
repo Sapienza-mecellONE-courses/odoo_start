@@ -31,6 +31,18 @@
             </xpath>
         </field>
     </record>
+    <record id="view_event_form_inherit" model="ir.ui.view">
+        <field name="name">evento.event.form.inherit</field>
+        <field name="model">evento.event</field>
+        <field name="inherit_id" ref="evento.view_event_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/notebook/page[@name='extra_info']/group" position="inside">
+                <button name="action_send_invitations" string="Invia Inviti" type="object" class="oe_highlight" />
+            </xpath>
+        </field>
+    </record>
+
+    
 
     <record id="event_event_view_list" model="ir.ui.view">
         <field name="name">event.event.view.list.inherit.website</field>
