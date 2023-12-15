@@ -51,7 +51,7 @@
                     <field name="valuation" invisible="1"/>
                     <label for="standard_price"/>
                     <div>
-                        <field name="standard_price" widget='monetary' options="{'currency_field': 'cost_currency_id'}"/>
+                        <field name="standard_price" invisible="1" widget='monetary' options="{'currency_field': 'cost_currency_id'}"/>
                         <button name="button_bom_cost"
                             string="Compute Price from BoM"
                             type="object"
