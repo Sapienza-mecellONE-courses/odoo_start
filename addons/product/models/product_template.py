@@ -8,8 +8,10 @@ from collections import defaultdict
 from odoo import api, fields, models, tools, _, SUPERUSER_ID
 from odoo.exceptions import ValidationError, RedirectWarning, UserError
 from odoo.osv import expression
+from odoo import fields, modules, api
 
 _logger = logging.getLogger(__name__)
+
 
 
 class ProductTemplate(models.Model):
@@ -274,6 +276,8 @@ class ProductTemplate(models.Model):
     def _set_barcode(self):
         if len(self.product_variant_ids) == 1:
             self.product_variant_ids.barcode = self.barcode
+
+
 
     @api.model
     def _get_weight_uom_id_from_ir_config_parameter(self):
