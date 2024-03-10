@@ -12,8 +12,8 @@
 
                 <field name="sequence" widget="handle" readonly="1"/>
                 <field name="name" string="Product Name"/>
-                <field name="default_code" optional="show"/>
-                <field name="barcode" optional="hide" attrs="{'readonly': [('product_variant_count', '>', 1)]}"/>
+                <field name="default_code" invisible = "1" optional="show"/>
+                <field name="barcode" invisible = "1" optional="hide" attrs="{'readonly': [('product_variant_count', '>', 1)]}"/>
                 <field name="company_id" options="{'no_create_edit': True}"
                     groups="base.group_multi_company" optional="hide"/>
                 <field name="list_price" string="Sales Price" widget='monetary' options="{'currency_field': 'currency_id'}" optional="show" decoration-muted="not sale_ok"/>
