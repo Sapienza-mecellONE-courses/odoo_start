@@ -16,7 +16,7 @@ _logger = logging.getLogger(__name__)
 
 class ProductTemplate(models.Model):
     _name = "product.template"
-    _inherit = ['mail.thread', 'mail.activity.mixin', 'image.mixin','product.template']
+    _inherit = ['mail.thread', 'mail.activity.mixin', 'image.mixin']
     _description = "Product Template"
     _order = "name"
 
@@ -36,7 +36,6 @@ class ProductTemplate(models.Model):
             category_ids = categories._search([], order=order, access_rights_uid=SUPERUSER_ID)
         return categories.browse(category_ids)
 
-    code = fields.Char(string='Codice ID', required=True, readonly=True, default='New')
     name = fields.Char('Name', index=True, required=True, translate=True)
     sequence = fields.Integer('Sequence', default=1, help='Gives the sequence order when displaying a product list')
     description = fields.Text(
@@ -278,12 +277,7 @@ class ProductTemplate(models.Model):
         if len(self.product_variant_ids) == 1:
             self.product_variant_ids.barcode = self.barcode
 
-    @api.model
-    def create(self, vals):
-        if vals.get('code', 'New') == 'New':
-            vals['code'] = self.env['ir.sequence'].next_by_code('exam.reservation.sequence')
-        result = super(ProductTemplate, self).create(vals)
-        return result
+
 
     @api.model
     def _get_weight_uom_id_from_ir_config_parameter(self):
