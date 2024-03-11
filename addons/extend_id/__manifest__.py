@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "product",
+    'name': "extend_id",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
